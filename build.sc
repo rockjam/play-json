@@ -21,7 +21,7 @@ trait PlayJsonModule extends BaseModule with PublishModule with MiMa {
 
   def pomSettings = PomSettings(
     description = artifactName(),
-    organization = "com.typesafe.play",
+    organization = "com.github.rockjam",
     url = "https://github.com/playframework/play-json",
     licenses = Seq(License.`Apache-2.0`),
     versionControl = VersionControl.github("playframework", "play-json"),
