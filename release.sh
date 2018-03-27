@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
 
+set -eux
+
 mill release.clean
 mill __.test
 mill release.setReleaseVersion
 mill mill.scalalib.PublishModule/publishAll \
-    --sonatypeCreds $SONATYPE_CREDENTIALS \
-    --gpgPassphrase $GPG_PASSPHRASE \
-    --publishArtifacts __.publishArtifacts \
-    --release true
+    "$SONATYPE_CREDENTIALS" \
+    "$GPG_PASSPHRASE" \
+    __.publishArtifacts \
+    --release \
+    true \
 mill release.setNextVersion
